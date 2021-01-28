@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SunnyWeather</string>
+    <string name="bg_place">place fragment background image</string>
+    <string name="input_location">输入地址</string>
 </resources>
