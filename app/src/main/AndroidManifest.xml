@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SunnyWeather"
         tools:ignore="AllowBackup">
-        <activity android:name="com.sunnyweather.android.MainActivity">
+        <activity android:name=".ui.weather.WeatherActivity"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

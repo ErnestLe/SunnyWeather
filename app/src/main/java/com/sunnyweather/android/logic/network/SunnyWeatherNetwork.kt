@@ -12,7 +12,13 @@ object SunnyWeatherNetwork {
 
     private val placeService = ServiceCreator.create<PlaceService>()
 
+    private val weatherService = ServiceCreator.create<WeatherService>()
+
     suspend fun searchPlaces(query: String) = placeService.searchPlaces(query).await()
+
+    suspend fun getRealtimeWeather(lng: String, lat: String) = weatherService.getRealtimeWeather(lng, lat).await()
+
+    suspend fun getDailyWeather(lng: String, lat: String) = weatherService.getDailyWeather(lng, lat).await()
 
     // suspend 关键字表示该函数"可能"会挂起当前协程
     // suspend 修饰的函数必须在协程(协程作用域)中运行

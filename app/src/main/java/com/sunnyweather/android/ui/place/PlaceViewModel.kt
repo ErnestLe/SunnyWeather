@@ -1,9 +1,10 @@
-package com.sunnyweather.android.logic
+package com.sunnyweather.android.ui.place
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.sunnyweather.android.logic.model.Place
+import com.sunnyweather.android.logic.Repository
+import com.sunnyweather.android.logic.model.PlacesResponse.Place
 
 class PlaceViewModel : ViewModel() {
 
@@ -16,6 +17,12 @@ class PlaceViewModel : ViewModel() {
     val placesLiveData = Transformations.switchMap(searchLiveData) {
         Repository.searchPlaces(it)
     }
+
+    fun savePlace(place: Place) = Repository.savePlace(place)
+
+    fun getSavedPlace() = Repository.getSavedPlace()
+
+    fun isPlaceSaved() = Repository.isPlaceSaved()
 
     // UI 层提交了搜索请求，搜寻结果会异步到 placesLiveData
     fun searchPlaces(query: String) {
